@@ -9,7 +9,6 @@ def board_state(matrix_positions = ['.','.','.','.','.','.','.','.','.']): #TODO
 
 #Define game status whether the player wants to play or not
 def game_start():
-    clear_output()
     confirm = input("Welcome to TicTacToe, would you like to play? (yes/no): ")
 
     if confirm == "y" or confirm == "yes":
