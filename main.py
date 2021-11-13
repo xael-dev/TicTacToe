@@ -36,31 +36,34 @@ def player_choice(player_name1, player_name2):
         position_choice = int(input(player_name1 + " choose a position number (1-9): "))
         matrix_positions[position_choice] = "X"
         board_state(matrix_positions)
-        game_logic(matrix_positions, player_turn)
-        player_turn = 2
+        game_logic(matrix_positions, player_name1)
+        if player_turn == 3:
+            break
+        else:
+            player_turn = 2
+        
 
         if player_turn == 2:
             clear_output()
             position_choice = int(input(player_name2 + " choose a position number (1-9): "))
             matrix_positions[position_choice] = "O"
             board_state(matrix_positions)
-            game_logic(matrix_positions, player_turn)
-            player_turn = 1
-        
-        if player_turn == 3:
-            print("player has won!") #Break the loop here and declare appropriate winner
-            break
-        
+            game_logic(matrix_positions, player_name2)
+            if player_turn == 3:
+                break
+            else:
+                player_turn = 1
+
 #Game logic
-def game_logic(matrix_positions, player_turn):
+def game_logic(matrix_positions, player_name):
     win_state = None #print(f"Player {player_turn} has won!")
 
     if "X" in matrix_positions[0] and "X" in matrix_positions[1] and "X" in matrix_positions[2]:
-        print("win") #debug
+        global player_turn
         player_turn = 3
-    return player_turn, matrix_positions, win_state
-
-
+        print(f"{player_name} has won!")
+    else:
+        return
 
 
 #Game Programming
