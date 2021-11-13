@@ -22,8 +22,6 @@ def game_start():
     else: 
         print("Sorry, that input isn't valid")
 
-    return player_name1, player_name2, confirm
-
 #Define user input
 def player_choice(player_name1, player_name2):
     matrix_positions = ['.', '.', '.', '.', '.', '.', '.', '.', '.']
