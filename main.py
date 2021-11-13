@@ -17,7 +17,7 @@ def game_start():
         player_name1 = str(input("What is your name player 1: "))
         player_name2 = str(input("What is your name player 2: "))
         clear_output()
-        display_game = board_state()
+        board_state()
         player_choice(player_name1, player_name2)
     elif confirm == "n" or confirm == "no":
         print("Maybe next time!")
