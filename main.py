@@ -21,7 +21,7 @@ def game_start():
         player_choice(player_name1, player_name2)
     elif confirm == "n" or confirm == "no":
         print("Maybe next time!")
-    else: 
+    else:
         print("Sorry, that input isn't valid")
 
 #Define user input
