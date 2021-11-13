@@ -41,7 +41,6 @@ def player_choice(player_name1, player_name2):
             break
         else:
             player_turn = 2
-        
 
         if player_turn == 2:
             clear_output()
