@@ -45,19 +45,20 @@ def player_choice(player_name1, player_name2):
             game_logic(matrix_positions, player_turn)
             player_turn = 1
         
-        if player_turn == 3: #Break the loop here and declare appropriate winner
-            pass
+        if player_turn == 3:
+            print("player has won!") #Break the loop here and declare appropriate winner
+            break
         
     
 
 #Game logic
 def game_logic(matrix_positions, player_turn):
-    # win_state = print(f"Player {player_turn} has won!")
-    if "X" in matrix_positions[0:2]:
-        print("Winner")
-        return player_turn, matrix_positions, win_state
-    else:
-        return False
+    win_state = None #print(f"Player {player_turn} has won!")
+    
+    if "X" in matrix_positions[0] and "X" in matrix_positions[1] and "X" in matrix_positions[2]:
+        print("win") #debug
+        player_turn = 3
+    return player_turn, matrix_positions, win_state
 
 
 
