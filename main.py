@@ -27,7 +27,7 @@ def game_start():
 #Define user input
 def player_choice(player_name1, player_name2):
     matrix_positions = ['.', '.', '.', '.', '.', '.', '.', '.', '.']
-    player_turn = 1
+    global player_turn
 
     #TODO: Validate and convert these inputs to appropriate array mappings in matrix_positions list
     #TODO: Validate if names are present and if not assign default to them
