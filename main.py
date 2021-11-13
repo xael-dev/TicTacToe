@@ -1,5 +1,7 @@
 from IPython.display import clear_output
 
+player_turn = 1
+
 #Board state maintenance, uses a passed in dictionary to update positions on the board
 def board_state(matrix_positions = ['.','.','.','.','.','.','.','.','.']): #TODO: Clean this up later, make this list the universal default
     # matrix_positions = ["a","b","c","d","e","f","g","h","i"] Debug purposes :P
