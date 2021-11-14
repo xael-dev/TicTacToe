@@ -31,33 +31,73 @@ def player_choice(player_name1, player_name2):
 
     #TODO: Validate and convert these inputs to appropriate array mappings in matrix_positions list
     #TODO: Validate if names are present and if not assign default to them
-    while player_turn == 1:
-        clear_output()
-        position_choice = int(input(player_name1 + " choose a position number (1-9): "))
-        matrix_positions[position_choice] = "X"
-        board_state(matrix_positions)
-        game_logic(matrix_positions, player_name1)
-        if player_turn == 3:
-            break
-        else:
-            player_turn = 2
+    while player_turn != None:
+        if player_turn == 1:
+            clear_output()
+            position_choice = str(input(player_name1 + " choose a position number (1-9): "))
+
+            if position_choice.isdigit() and (int(position_choice)-1) in range(0,9):
+                player_symbol = "X"
+                matrix_positions[int(position_choice)-1] = player_symbol
+                board_state(matrix_positions)
+                game_logic(matrix_positions, player_name1,player_symbol)
+
+                if player_turn == 3:
+                    break
+                else:
+                    player_turn = 2
+            else:
+                print("The number you entered is invalid")
 
         if player_turn == 2:
             clear_output()
-            position_choice = int(input(player_name2 + " choose a position number (1-9): "))
-            matrix_positions[position_choice] = "O"
-            board_state(matrix_positions)
-            game_logic(matrix_positions, player_name2)
-            if player_turn == 3:
-                break
+            position_choice = str(input(player_name2 + " choose a position number (1-9): "))
+            player_symbol = "O"
+            if position_choice.isdigit() and (int(position_choice)-1) in range(0,9):
+                matrix_positions[int(position_choice)-1] = player_symbol
+                board_state(matrix_positions)
+                game_logic(matrix_positions, player_name2, player_symbol)
+                
+                if player_turn == 3:
+                    break
+                else:
+                    player_turn = 1
             else:
-                player_turn = 1
+                print("The number you entered is invalid")
 
 #Game logic
-def game_logic(matrix_positions, player_name):
-    win_state = None #print(f"Player {player_turn} has won!")
-
-    if "X" in matrix_positions[0] and "X" in matrix_positions[1] and "X" in matrix_positions[2]:
+def game_logic(matrix_positions, player_name, player_symbol):
+    global player_turn
+    #Horizontal conditions
+    if player_symbol in matrix_positions[0] and player_symbol in matrix_positions[1] and player_symbol in matrix_positions[2]:
+        player_turn = 3
+        print(f"{player_name} has won!")
+    elif player_symbol in matrix_positions[3] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[5]:
+        player_turn = 3
+        print(f"{player_name} has won!")
+    elif player_symbol in matrix_positions[6] and player_symbol in matrix_positions[7] and player_symbol in matrix_positions[8]:
+        global player_turn
+        player_turn = 3
+        print(f"{player_name} has won!")
+    #Vertical conditions
+    elif player_symbol in matrix_positions[0] and player_symbol in matrix_positions[3] and player_symbol in matrix_positions[6]:
+        global player_turn
+        player_turn = 3
+        print(f"{player_name} has won!")
+    elif player_symbol in matrix_positions[1] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[7]:
+        global player_turn
+        player_turn = 3
+        print(f"{player_name} has won!")
+    elif player_symbol in matrix_positions[2] and player_symbol in matrix_positions[5] and player_symbol in matrix_positions[8]:
+        global player_turn
+        player_turn = 3
+        print(f"{player_name} has won!")
+    #Diagonal conditions
+    elif player_symbol in matrix_positions[0] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[8]:
+        global player_turn
+        player_turn = 3
+        print(f"{player_name} has won!")
+    elif player_symbol in matrix_positions[2] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[6]:
         global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
