@@ -36,6 +36,10 @@ def player_choice(player_name1, player_name2):
             clear_output()
             position_choice = str(input(player_name1 + " choose a position number (1-9): "))
 
+            if matrix_positions[int(position_choice)-1] == "X" or matrix_positions[int(position_choice)-1] == "O":
+                player_turn = 1
+                continue
+
             if position_choice.isdigit() and (int(position_choice)-1) in range(0,9):
                 player_symbol = "X"
                 matrix_positions[int(position_choice)-1] = player_symbol
@@ -47,11 +51,17 @@ def player_choice(player_name1, player_name2):
                 else:
                     player_turn = 2
             else:
-                print("The number you entered is invalid")
+                    print("The number you entered was invalid")
+            
 
         if player_turn == 2:
             clear_output()
             position_choice = str(input(player_name2 + " choose a position number (1-9): "))
+
+            if matrix_positions[int(position_choice)-1] == "X" or matrix_positions[int(position_choice)-1] == "O":
+                player_turn = 2
+                continue
+
             if position_choice.isdigit() and (int(position_choice)-1) in range(0,9):
                 player_symbol = "O"
                 matrix_positions[int(position_choice)-1] = player_symbol
@@ -94,7 +104,7 @@ def game_logic(matrix_positions, player_name, player_symbol):
         global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
-        
+
     #Diagonal conditions
     elif player_symbol in matrix_positions[0] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[8]:
         global player_turn
