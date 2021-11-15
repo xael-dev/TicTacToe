@@ -80,6 +80,8 @@ def player_choice(player_name1, player_name2):
             else:
                 print("The number you entered is invalid")
 
+    print("The game is a draw")
+
 #Game logic
 def game_logic(matrix_positions, player_name, player_symbol):
     global player_turn
