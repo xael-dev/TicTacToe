@@ -28,12 +28,12 @@ def game_start():
 def player_choice(player_name1, player_name2):
     matrix_positions = ['.', '.', '.', '.', '.', '.', '.', '.', '.']
     global player_turn
+    move_count = 0
 
-    #TODO: Validate and convert these inputs to appropriate array mappings in matrix_positions list
-    #TODO: Validate if names are present and if not assign default to them
-    while player_turn != None:
+    while player_turn != None and move_count <= 9:
         if player_turn == 1:
             clear_output()
+            move_count += 1
             position_choice = str(input(player_name1 + " choose a position number (1-9): "))
 
             if matrix_positions[int(position_choice)-1] == "X" or matrix_positions[int(position_choice)-1] == "O":
