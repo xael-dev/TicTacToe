@@ -87,31 +87,25 @@ def game_logic(matrix_positions, player_name, player_symbol):
         player_turn = 3
         print(f"{player_name} has won!")
     elif player_symbol in matrix_positions[6] and player_symbol in matrix_positions[7] and player_symbol in matrix_positions[8]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
 
     #Vertical conditions
     elif player_symbol in matrix_positions[0] and player_symbol in matrix_positions[3] and player_symbol in matrix_positions[6]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
     elif player_symbol in matrix_positions[1] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[7]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
     elif player_symbol in matrix_positions[2] and player_symbol in matrix_positions[5] and player_symbol in matrix_positions[8]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
 
     #Diagonal conditions
     elif player_symbol in matrix_positions[0] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[8]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
     elif player_symbol in matrix_positions[2] and player_symbol in matrix_positions[4] and player_symbol in matrix_positions[6]:
-        global player_turn
         player_turn = 3
         print(f"{player_name} has won!")
     else:
