@@ -56,6 +56,11 @@ def player_choice(player_name1, player_name2):
 
         if player_turn == 2:
             clear_output()
+            move_count += 1
+
+            if move_count >= 9:
+                break
+
             position_choice = str(input(player_name2 + " choose a position number (1-9): "))
 
             if matrix_positions[int(position_choice)-1] == "X" or matrix_positions[int(position_choice)-1] == "O":
