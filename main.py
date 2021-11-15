@@ -52,8 +52,8 @@ def player_choice(player_name1, player_name2):
         if player_turn == 2:
             clear_output()
             position_choice = str(input(player_name2 + " choose a position number (1-9): "))
-            player_symbol = "O"
             if position_choice.isdigit() and (int(position_choice)-1) in range(0,9):
+                player_symbol = "O"
                 matrix_positions[int(position_choice)-1] = player_symbol
                 board_state(matrix_positions)
                 game_logic(matrix_positions, player_name2, player_symbol)
